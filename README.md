@@ -17,7 +17,7 @@ Alice <-- Bob: another authentication Response
 Install it with pip:
 
 ```
-pip install pandoc-plantuml-filter
+pip install pandoc-plantuml-latex
 ```
 
 And use it like any other pandoc filter:

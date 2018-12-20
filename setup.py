@@ -54,13 +54,13 @@ class UploadCommand(Command):
 
 
 setup(
-    name='pandoc-plantuml-filter',
-    version='0.1.1',
+    name='pandoc-plantuml-latex',
+    version='0.2.0',
     description='Pandoc filter for PlantUML code blocks',
-    long_description='Pandoc filter for PlantUML code blocks',
-    author='Timo Furrer',
-    author_email='tuxtimo@gmail.com',
-    url='https://github.com/timofurrer/pandoc-plantuml-filter',
+    long_description='Pandoc filter for PlantUML code blocks. Patched with support for latex and beamer',
+    author='Claus Strasburger',
+    author_email='info@ninjaneers.de',
+    url='https://github.com/ninjaneers-team/pandoc-plantuml-filter',
     install_requires=required,
     py_modules=['pandoc_plantuml_filter'],
     entry_points={
