@@ -23,19 +23,23 @@ def plantuml(key, value, format_, meta):
     if key == 'Header':
         if 'tikz'in (str(meta)):
             os.environ["PLANTUML_LATEX_EXPORT"] = 'latex'
+
     if key == 'CodeBlock':
+        if os.getenv("DEBUG", "f").lower() in ("1", "true"):
+            print>>sys.stderr, "plantuml", key, value, format_, meta
+
         [[ident, classes, keyvals], code] = value
 
         if "plantuml" in classes:
             caption, typef, keyvals = get_caption(keyvals)
-            #
+
             if "PLANTUML_LATEX_EXPORT" in os.environ:
-                plantuml_latex_export="latex"
+                latex_img_format = "latex"
             else:
-                plantuml_latex_export="png"
-            #
+                latex_img_format = "eps"
+
             filename = get_filename4code("plantuml", code)
-            filetype = get_extension(format_, "png", html="svg", latex=plantuml_latex_export)
+            filetype = get_extension(format_, "png", html="svg", latex=latex_img_format, beamer=latex_img_format)
 
             src = filename + '.uml'
             dest = filename + '.' + filetype
@@ -48,7 +52,7 @@ def plantuml(key, value, format_, meta):
                     f.write(txt)
                 subprocess.check_call(PLANTUML_BIN.split() + ["-t" + filetype, src])
                 sys.stderr.write('Created image ' + dest + '\n')
-            if (filetype=="latex") and (plantuml_latex_export=='latex'):
+            if (filetype == "latex") and (latex_img_format == 'latex'):
                 latex = open(dest).read()
                 return RawBlock('latex', latex.split("\\begin{document}")[-1].split("\\end{document}")[0])
             else:
