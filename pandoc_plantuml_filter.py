@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+
 """
 Pandoc filter to process code blocks with class "plantuml" into
 plant-generated images.
@@ -16,7 +18,7 @@ from pandocfilters import get_filename4code, get_caption, get_extension
 
 PLANTUML_BIN = os.environ.get('PLANTUML_BIN', 'plantuml')
 
-pattern = re.compile('%\{(.*)\}$')
+pattern = re.compile('%{(.*)\}$')
 
 def plantuml(key, value, format_, meta):
 
@@ -26,7 +28,7 @@ def plantuml(key, value, format_, meta):
 
     if key == 'CodeBlock':
         if os.getenv("DEBUG", "f").lower() in ("1", "true"):
-            print>>sys.stderr, "plantuml", key, value, format_, meta
+            print("plantuml", key, value, format_, meta)
 
         [[ident, classes, keyvals], code] = value
 
