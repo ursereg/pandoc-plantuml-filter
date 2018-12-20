@@ -55,9 +55,9 @@ class UploadCommand(Command):
 
 setup(
     name='pandoc-plantuml-latex',
-    version='0.2.0',
+    version='0.2.1',
     description='Pandoc filter for PlantUML code blocks',
-    long_description='Pandoc filter for PlantUML code blocks. Patched with support for latex and beamer',
+    long_description=open("README.md").read(),
     author='Claus Strasburger',
     author_email='info@ninjaneers.de',
     url='https://github.com/ninjaneers-team/pandoc-plantuml-filter',

@@ -29,7 +29,11 @@ pandoc tests/sample.md -o sample.pdf --filter pandoc-plantuml
 The PlantUML binary must be in your `$PATH` or can be set with the
 `PLANTUML_BIN` environment variable.
 
-## But there is ...
+## Differences from [pandoc-plantuml-filter](https://github.com/timofurrer/pandoc-plantuml-filter)
 
-There are a few other filters trying to convert PlantUML code blocks however
-they all failed for me.
+- merged pull request [Raw latex support](https://github.com/timofurrer/pandoc-plantuml-filter/pull/4)  
+  see [tests/](tests/)
+
+- also generate vector images for latex `beamer` template
+
+- added debugging environment variable `DEBUG=1`
