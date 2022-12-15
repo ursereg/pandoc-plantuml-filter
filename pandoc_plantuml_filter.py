@@ -56,7 +56,14 @@ def plantuml(key, value, format_, meta):
                 sys.stderr.write('Created image ' + dest + '\n')
             if (filetype == "latex") and (latex_img_format == 'latex'):
                 latex = open(dest).read()
-                return RawBlock('latex', latex.split("\\begin{document}")[-1].split("\\end{document}")[0])
+                text = latex.split("\\begin{document}")[-1].split("\\end{document}")[0]
+                # return RawBlock('latex', text)
+                # Some experiments. In general plantuml diagrams are too big,
+                # scale them down. Fit to width if still too large.
+                # Set up monotype `Large` font - matches better to plantuml font
+                # size - and it should, to go well with all other symbols.
+                # This part need to be made configurable somehow.
+                return RawBlock('latex', "\\adjustbox{scale=0.6, max width=\\textwidth}{\\texttt{\\Large{" + text + "}}}")
             else:
                 return Para([Image([ident, [], keyvals], caption, [dest, typef])])
 
