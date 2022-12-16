@@ -38,7 +38,7 @@ def plantuml(key, value, format_, meta):
             if "PLANTUML_LATEX_EXPORT" in os.environ:
                 latex_img_format = "latex"
             else:
-                latex_img_format = "eps"
+                latex_img_format = "svg"
 
             filename = get_filename4code("plantuml", code)
             filetype = get_extension(format_, "png", html="svg", latex=latex_img_format, beamer=latex_img_format)
