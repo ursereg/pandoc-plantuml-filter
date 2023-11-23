@@ -40,7 +40,7 @@ def plantuml(key, value, format_, meta):
                 pformat = meta.get("plantuml-format", None)
                 filetype = get_extension(format_, pformat["c"][0]["c"])
             else:
-                filetype = get_extension(format_, "png", html="svg", latex="png")
+                filetype = get_extension(format_, "png", html="svg", latex="svg")
 
             src = filename + ".uml"
             dest = filename + "." + filetype
