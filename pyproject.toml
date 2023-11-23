@@ -6,6 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "pandoc-plantuml-filter"
 authors = [
     {name = "Timo Furrer", email = "tuxtimo@gmail.com"},
+    {name = "Mateusz Maciaś", email = "ursereg@gmail.com"}
 ]
 description = "Pandoc filter for PlantUML code blocks"
 readme = "README.md"
@@ -29,7 +30,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
 dependencies = [
-    "pandocfilters",
+    "panflute",
 ]
 dynamic = ["version"]
 

@@ -1,15 +1,17 @@
 # Some PantUML sample
 
 ```plantuml
+@startuml
 Alice -> Bob: Authentication Request
 Bob --> Alice: Authentication Response
 
 Alice -> Bob: Another authentication Request
 Alice <-- Bob: another authentication Response
+@enduml
 ```
 
-```plantuml
-
+```{.plantuml caption="Some test diagram"}
+@startuml
 Alice -> Bob: Authentication Request
 
 alt successful case
@@ -32,26 +34,7 @@ else Another type of failure
    Bob -> Alice: Please repeat
    
 end
-
-
+@enduml
 ```
 
 Nice, huh?
-
-# Another example which referenced later
-This tests relative path w/ subdirectory
-
-```{ .plantuml width=60% plantuml-filename=images/example.png }
-[producer] -> [consumer]: data streaming
-```
-
-This tests relative path w/o subdirectories
-
-```{ .plantuml width=60% plantuml-filename=example.png }
-[producer] -> [consumer]: data streaming
-```
-
-Here's a UML
-
-# Reference
-![And here's the reference](images/example.png)
