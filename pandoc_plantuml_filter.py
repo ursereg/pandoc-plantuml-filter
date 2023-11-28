@@ -12,6 +12,7 @@ PLANTUML_BIN = os.environ.get("PLANTUML_BIN", "plantuml")
 PLANTUML_DIR = os.environ.get("PLANTUML_DIR", "plantuml-images")
 PLANTUML_FORMAT = os.environ.get("PLANTUML_FORMAT", "svg")
 
+
 def prepare(doc: pf.elements.Doc):
     try:
         os.mkdir(PLANTUML_DIR)
@@ -44,7 +45,9 @@ def action(element, doc):
         caption = None
         if "caption" in element.attributes:
             caption = pf.Caption(pf.Plain(pf.Str(img_caption)))
-            return pf.Figure(pf.Plain(image), caption=caption, identifier=element.identifier)
+            return pf.Figure(
+                pf.Plain(image), caption=caption, identifier=element.identifier
+            )
         return pf.Para(image)
 
 
