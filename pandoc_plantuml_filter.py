@@ -10,7 +10,7 @@ import panflute as pf
 
 PLANTUML_BIN = os.environ.get("PLANTUML_BIN", "plantuml")
 PLANTUML_DIR = os.environ.get("PLANTUML_DIR", "plantuml-images")
-
+PLANTUML_FORMAT = os.environ.get("PLANTUML_FORMAT", "svg")
 
 def prepare(doc: pf.elements.Doc):
     try:
@@ -19,7 +19,7 @@ def prepare(doc: pf.elements.Doc):
         pass
 
 
-def generate(block: pf.CodeBlock, filetype="svg") -> str:
+def generate(block: pf.CodeBlock, filetype=PLANTUML_FORMAT) -> str:
     txt = block.text
     filename = f"plantuml-images/{hashlib.sha1(txt.encode()).hexdigest()}"
     src = filename + ".uml"
